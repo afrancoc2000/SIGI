@@ -28,4 +28,8 @@
 
 # "temporary" build files
 /target
+
+# Eclipse config files
 /target-eclipse
+/.settings
+/*.project
