@@ -24,10 +24,10 @@ environments {
     }
     test {
         dataSource {
-            dbCreate = "update"
+            dbCreate = "create-drop" // one of 'create', 'create-drop', 'update', 'validate', ''
             dialect = org.hibernate.dialect.PostgreSQLDialect
     
-            uri = new URI(System.env.DATABASE_URL?:"postgres://test:test@localhost/test")
+            uri = new URI(System.env.DATABASE_URL?:"postgres://sigi_admin_user:SebasJuandaAna12345@localhost/sigiDevDB")
     
             url = "jdbc:postgresql://"+uri.host+uri.path
             username = uri.userInfo.split(":")[0]
