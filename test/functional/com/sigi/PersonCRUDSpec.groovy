@@ -1,17 +1,20 @@
 package com.sigi
 
 import geb.spock.GebReportingSpec
+import groovy.util.logging.Log4j
 
 import spock.lang.*
 
 import pages.*
 
+@Log4j
 @Stepwise
 class PersonCRUDSpec extends GebReportingSpec {
 	
    def "ir a login"() {
        when:
        browser.go "/SIGI/login/auth"
+       log.info("comentario")
 
        then:
        browser.page.title == "Login"
