@@ -9,7 +9,7 @@ import pages.*
 @Stepwise
 class PersonCRUDSpec extends GebReportingSpec {
 	
-   def "go to login"() {
+   def "ir a login"() {
        when:
        browser.go "/SIGI/login/auth"
 
@@ -18,21 +18,23 @@ class PersonCRUDSpec extends GebReportingSpec {
    }
    
    def "equivocar login"() {
-	when:
-	j_username = "admin"
-	j_password = "password.malo"
-	submitInput.click()
-	then:
-	at "login/auth?login_error=1&format="
+		when:
+		j_username = "admin"
+		j_password = "password.malo"
+		submitInput.click()
+
+		then:
+		browser.page.title == "Login"
    }
    
    def "realizar login"() {
-	when:
-	j_username = "admin"
-	j_password = "ana.franco.43159262"
-	submitInput.click()
-	then:
-	at "base/index"
+		when:
+		j_username = "admin"
+		j_password = "ana.franco.43159262"
+		submitInput.click()
+
+		then:
+		browser.page.title == "Denied"
    }
    
 }
