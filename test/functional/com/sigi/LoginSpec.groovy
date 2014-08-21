@@ -11,8 +11,20 @@ class LoginSpec extends GebReportingSpec {
 	
    def "go to login"() {
        when:
-	   //def urlAmbiente = System.getenv("RUTA_AMBIENTE")
-	   def urlAmbiente = "http://sigi-test.herokuapp.com"
+	   def urlAmbiente = ""
+	   def ambiente = System.getProperty("ambiente")
+	   if (ambiente == "jenkinsTest")
+	   {
+	   		urlAmbiente = "http://sigi-test.herokuapp.com"
+	   }
+	   else if (ambiente == "jenkinsProd")
+	   {
+		   urlAmbiente = "http://sigi-app.herokuapp.com"
+	   }
+	   else
+	   {
+		   urlAmbiente = ""
+	   }
        browser.go (urlAmbiente + "/SIGI/login/auth") //"http://sigi-test.herokuapp.com/SIGI/login/auth"
 
        then:
