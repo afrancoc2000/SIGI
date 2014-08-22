@@ -15,6 +15,11 @@ class BaseControllerSpec extends Specification {
     def cleanup() {
     }
 
-    void "Probar que la acción index retorna el modelo correcto"() {
+    void "Probar que la accion index retorna el modelo correcto"() {
+		when:
+		'hola'
+
+		then:
+		'hola' == 'hola'
     }
 }
