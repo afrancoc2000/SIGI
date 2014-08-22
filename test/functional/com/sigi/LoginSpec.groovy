@@ -22,7 +22,7 @@ class LoginSpec extends GebReportingSpec {
 	   else{
 		   urlAmbiente = ""
 	   }
-       browser.go (urlAmbiente + "/SIGI/login/auth") //"http://sigi-test.herokuapp.com/SIGI/login/auth"
+       browser.go (urlAmbiente + "/SIGI/base/index") //"http://sigi-test.herokuapp.com/SIGI/login/auth"
 
        then:
        browser.page.title == "Login"
@@ -45,7 +45,7 @@ class LoginSpec extends GebReportingSpec {
 	   $("#submit").click()
 
 	   then:
-	   browser.page.title == "Denied"
+	   browser.page.title == "SIGI"
   }
    
 }
