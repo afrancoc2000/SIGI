@@ -13,16 +13,13 @@ class LoginSpec extends GebReportingSpec {
        when:
 	   def urlAmbiente = ""
 	   def ambiente = System.getProperty("ambiente")
-	   if (ambiente == "jenkinsTest")
-	   {
+	   if (ambiente == "jenkinsTest"){
 	   		urlAmbiente = "http://sigi-test.herokuapp.com"
 	   }
-	   else if (ambiente == "jenkinsProd")
-	   {
+	   else if (ambiente == "jenkinsProd"){
 		   urlAmbiente = "http://sigi-app.herokuapp.com"
 	   }
-	   else
-	   {
+	   else{
 		   urlAmbiente = ""
 	   }
        browser.go (urlAmbiente + "/SIGI/login/auth") //"http://sigi-test.herokuapp.com/SIGI/login/auth"
@@ -31,24 +28,24 @@ class LoginSpec extends GebReportingSpec {
        browser.page.title == "Login"
    }
    
-//   def "equivocar login"() {
-//	   when:
-//	   j_username = "admin"
-//	   j_password = "password.malo"
-//	   submitInput.click()
-//
-//	   then:
-//	   browser.page.title == "Login"
-//  }
-//  
-//  def "realizar login"() {
-//	   when:
-//	   j_username = "admin"
-//	   j_password = "ana.franco.43159262"
-//	   submitInput.click()
-//
-//	   then:
-//	   browser.page.title == "Denied"
-//  }
+   def "equivocar login"() {
+	   when:
+	   j_username = "admin"
+	   j_password = "password.malo"
+	   $("#submit").click()
+
+	   then:
+	   browser.page.title == "Login"
+  }
+  
+  def "realizar login"() {
+	   when:
+	   j_username = "admin"
+	   j_password = "ana.franco.43159262"
+	   $("#submit").click()
+
+	   then:
+	   browser.page.title == "Denied"
+  }
    
 }
