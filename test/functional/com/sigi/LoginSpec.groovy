@@ -20,9 +20,9 @@ class LoginSpec extends GebReportingSpec {
 		   urlAmbiente = "http://sigi-app.herokuapp.com"
 	   }
 	   else{
-		   urlAmbiente = ""
+		   urlAmbiente = "/SIGI"
 	   }
-       browser.go (urlAmbiente + "/SIGI/base/index") //"http://sigi-test.herokuapp.com/SIGI/login/auth"
+       browser.go (urlAmbiente + "/base/index") //"http://sigi-test.herokuapp.com/SIGI/login/auth"
 
        then:
        browser.page.title == "Login"
