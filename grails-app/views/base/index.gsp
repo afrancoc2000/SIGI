@@ -44,8 +44,11 @@
         </script>
     </head>
     <body>
-        <div id="map" class="map">
+        <div id="map" class="map" ng-controller="MapaCtrl">
             <div id="HomeButton"></div>
+            <div ng-repeat="clima in climas">
+                <div myClimaDiv ng-attr-posX="clima.posX" ng-attr-posY="clima.posY" ng-attr-tipo="clima.tipo"></div>
+            </div>
         </div>
     </body>
 </html>
