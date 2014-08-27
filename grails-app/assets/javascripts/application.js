@@ -18,3 +18,43 @@ if (typeof jQuery !== 'undefined') {
 		});
 	})(jQuery);
 }
+
+
+(function(){
+	var app = angular.module('sigiApp', []);
+
+	app.controller('MapaCtrl', ['$scope', '$http', '$filter', function($scope, $http, $filter){
+		$scope.climas = [];
+
+		$http.get('climas.json').success(function(data){
+			$scope.climas = data;
+		});
+		
+	}]);
+	
+	app.directive('myClimaDiv', ['$window', function($window){
+	    return function (scope, element, attrs) {
+	            var posX = attrs.posX;
+	            var posY = attrs.posY;
+	            var tipo = attrs.tipo;
+	            
+	            var imagen = "";
+	            if (tipo == "LLUVIA"){
+	            	imagen = "";
+	            }
+	            else if (tipo == "CONTAMINACION"){
+	            	imagen = "";
+	            }
+	            
+	            element.css({
+	            	position: absolute;
+	            	left: posX + 'px';
+	    		top: posY + 'px';
+	    		background-image = imagen;
+	            });
+	    };
+	}]);
+
+})();
+
+
