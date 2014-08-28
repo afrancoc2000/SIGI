@@ -45,6 +45,9 @@ if (typeof jQuery !== 'undefined') {
 	            else if (tipo == "CONTAMINACION"){
 	            	imagen = "";
 	            }
+                else if (tipo == "TEMPERATURA"){
+                    imagen = "";
+                }
 	            
 	            element.css({
 	            	position: 'absolute',
