@@ -40,7 +40,7 @@ if (typeof jQuery !== 'undefined') {
 	            
 	            var imagen = "";
 	            if (tipo == "LLUVIA"){
-	            	imagen = "";
+	            	imagen = "${assetPath(src: 'nube.png')}";
 	            }
 	            else if (tipo == "CONTAMINACION"){
 	            	imagen = "";
