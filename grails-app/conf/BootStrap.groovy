@@ -20,7 +20,7 @@ class BootStrap {
 			assert UsuarioRol.count() == 1
 		}
 		
-		if(!Clima.count() == 0){
+		if(Clima.count() == 0){
 			def clima = new Clima(
 				posX: 34, 
 				posY: 56, 

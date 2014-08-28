@@ -26,7 +26,7 @@ if (typeof jQuery !== 'undefined') {
 	app.controller('MapaCtrl', ['$scope', '$http', '$filter', function($scope, $http, $filter){
 		$scope.climas = [];
 
-		$http.get('climas.json').success(function(data){
+		$http.get('climas.json?posX=45&posY=45').success(function(data){
 			$scope.climas = data;
 		});
 		
@@ -34,23 +34,25 @@ if (typeof jQuery !== 'undefined') {
 	
 	app.directive('myClimaDiv', ['$window', function($window){
 	    return function (scope, element, attrs) {
-	            var posX = attrs.posX;
-	            var posY = attrs.posY;
+	            var posX = attrs.posx;
+	            var posY = attrs.posy;
 	            var tipo = attrs.tipo;
 	            
 	            var imagen = "";
 	            if (tipo == "LLUVIA"){
-	            	imagen = "${assetPath(src: 'nube.png')}";
+	            	imagen = "nube.png";
 	            }
 	            else if (tipo == "CONTAMINACION"){
 	            	imagen = "";
 	            }
 	            
 	            element.css({
-	            	position: absolute;
-	            	left: posX + 'px';
-	    		top: posY + 'px';
-	    		background-image = imagen;
+	            	position: 'absolute',
+	            	left: posX + 'px',
+	    		    top: posY + 'px',
+                    height: '50px',
+                    width: '100px',
+	    		    backgroundImage: 'url(../images/' + imagen + ')'
 	            });
 	    };
 	}]);

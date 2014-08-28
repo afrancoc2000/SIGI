@@ -1,32 +1,41 @@
 package com.sigi
 
 import grails.plugin.springsecurity.annotation.Secured
+import grails.converters.JSON
 
 class BaseController {
 
 	@Secured(["hasAnyRole('ROL_USER', 'ROL_ADMIN')"])
     def index() { }
-    
+
+    @Secured(["hasAnyRole('ROL_USER', 'ROL_ADMIN')"])
     def climas(){
 
-	def ubicacionJSON = request.JSON
-	def posActualX = ubicacionJSON.posX
-	def posActualY = ubicacionJSON.posY
-	
-    	def climas = Clima.findAllByPosXBetweenAndPosYBetween(posXActual - 10, posXActual + 10, posYActual - 10, posYActual + 10)
+        log.info(request.JSON)
+        def dataJSON = request
+        log.info(dataJSON)
+        def posActualX = 30
+        def posActualY = 50
 
-	def climasJSON = []
-	climas.each { clima ->
-		def climaJSON = [:]
-		climaJSON['id'] = clima.id
-		climaJSON['posX'] = clima.posX
-		climaJSON['posY'] = clima.posY
-		climaJSON['tipo'] = clima.tipo
-		climaJSON['valor'] = clima.valor
+        log.info("posiciones: ${posActualX}, Y:${posActualY}")
+        log.info("posiciones: X: " + posActualX)
+        log.info("posiciones: Y: " + posActualY)
 
-		climasJSON.add(climaJSON)
-	}
-	
-	render climasJSON as JSON
+    	def climas = Clima.findAllByPosXBetweenAndPosYBetween(posActualX - 10, posActualX + 10, posActualY - 10, posActualY + 10)
+        //def climas = Clima.findAll()
+
+        def climasJSON = []
+        climas.each { clima ->
+            def climaJSON = [:]
+            climaJSON['id'] = clima.id
+            climaJSON['posX'] = clima.posX
+            climaJSON['posY'] = clima.posY
+            climaJSON['tipo'] = clima.tipo.toString()
+            climaJSON['valor'] = clima.valor
+
+            climasJSON.add(climaJSON)
+        }
+
+        render climasJSON as JSON
     }
 }
