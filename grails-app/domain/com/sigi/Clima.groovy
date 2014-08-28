@@ -6,10 +6,10 @@ class Clima {
         TEMPERATURA, LLUVIA, CONTAMINACION
     }
 
-    double ubicacionX
-    double ubicacionY
+    double posX
+    double posY
     double valor
-    TipoClima tipoClima
+    TipoClima tipo
 
     static constraints = {
     }

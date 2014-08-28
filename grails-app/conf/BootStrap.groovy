@@ -19,6 +19,16 @@ class BootStrap {
 			assert Rol.count() == 2
 			assert UsuarioRol.count() == 1
 		}
+		
+		if(Clima.count() == 0){
+			def clima = new Clima(
+				posX: 34, 
+				posY: 56, 
+				tipo: Clima.TipoClima.LLUVIA,
+				valor: 34
+			)
+			clima.save(flush: true, failOnError: true)
+		}
     }
 
     def destroy = {
