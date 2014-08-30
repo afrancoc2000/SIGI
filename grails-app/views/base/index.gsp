@@ -51,9 +51,23 @@
                 arrayUtils, domStyle, ColorPicker
                 ) {
 
+            var xpos = -75.590556;
+            var ypos = 6.230833;
+
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition);
+            } else {
+                alert("Geolocation is not supported by this browser.");
+            }
+
+            function showPosition(position) {
+                xpos = position.coords.latitude;
+                ypos = position.coords.longitude;
+            }
+
             map = new Map("map",{
                 basemap: "streets",
-                center: [-75.590556, 6.230833],
+                center: [xpos, ypos],
                 zoom: 14,
                 minZoom: 2
             });
