@@ -51,28 +51,29 @@
                 arrayUtils, domStyle, ColorPicker
                 ) {
 
-            var xpos = -75.590556;
-            var ypos = 6.230833;
-
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(showPosition);
             } else {
+                map = new Map("map",{
+                    basemap: "streets",
+                    center: [-75.590556, 6.230833],
+                    zoom: 14,
+                    minZoom: 2
+                });
+                map.on("load", mapLoaded);
                 alert("Geolocation is not supported by this browser.");
             }
 
             function showPosition(position) {
-                xpos = position.coords.latitude;
-                ypos = position.coords.longitude;
+                map = new Map("map",{
+                    basemap: "streets",
+                    center: [position.coords.longitude, position.coords.latitude],
+                    zoom: 14,
+                    minZoom: 2
+                });
+                map.on("load", mapLoaded);
+
             }
-
-            map = new Map("map",{
-                basemap: "streets",
-                center: [xpos, ypos],
-                zoom: 14,
-                minZoom: 2
-            });
-
-            map.on("load", mapLoaded);
 
             function mapLoaded(){
                 var points = [[-75.590556, 6.230833],[-75.5769733, 6.2355791],[-75.593367, 6.2404852]];
