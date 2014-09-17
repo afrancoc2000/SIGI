@@ -15,9 +15,8 @@
   		<asset:stylesheet src="application.css"/>
 		<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 		<script src="http://code.jquery.com/ui/1.11.0/jquery-ui.min.js"></script>
-		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js"></script>
         <asset:javascript src="application.js"/>
-		<g:layoutHead/>
+    <g:layoutHead/>
 	</head>
 	<body>
 		<div id="grailsLogo" role="banner"><a href="http://grails.org"><asset:image src="grails_logo.png" alt="Grails"/></a></div>

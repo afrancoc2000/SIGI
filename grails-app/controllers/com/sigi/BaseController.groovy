@@ -14,22 +14,20 @@ class BaseController {
         log.info(request.JSON)
         def dataJSON = request
         log.info(dataJSON)
-        def posActualX = 30
-        def posActualY = 50
+        def lat = dataJSON.lat
+        def lon = dataJSON.lon
 
-        log.info("posiciones: ${posActualX}, Y:${posActualY}")
-        log.info("posiciones: X: " + posActualX)
-        log.info("posiciones: Y: " + posActualY)
+        log.info("posiciones: LAT: ${lat}, LON:${lon}")
 
-    	def climas = Clima.findAllByPosXBetweenAndPosYBetween(posActualX - 10, posActualX + 10, posActualY - 10, posActualY + 10)
-        //def climas = Clima.findAll()
+    	//def climas = Clima.findAllByLatitudBetweenAndLongitudBetween(posActualX - 10, posActualX + 10, posActualY - 10, posActualY + 10)
+        def climas = Clima.findAll()
 
         def climasJSON = []
         climas.each { clima ->
             def climaJSON = [:]
             climaJSON['id'] = clima.id
-            climaJSON['posX'] = clima.posX
-            climaJSON['posY'] = clima.posY
+            climaJSON['latitud'] = clima.latitud
+            climaJSON['longitud'] = clima.longitud
             climaJSON['tipo'] = clima.tipo.toString()
             climaJSON['valor'] = clima.valor
 

@@ -6,8 +6,8 @@ class Clima {
         TEMPERATURA, LLUVIA, CONTAMINACION
     }
 
-    double posX
-    double posY
+    double latitud
+    double longitud
     double valor
     TipoClima tipo
 

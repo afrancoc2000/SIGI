@@ -22,8 +22,8 @@ class BootStrap {
 		
 		if(Clima.count() == 0){
 			def clima = new Clima(
-				posX: 34, 
-				posY: 56, 
+				latitud: 6.2,
+				longitud: -75,
 				tipo: Clima.TipoClima.LLUVIA,
 				valor: 34
 			)
