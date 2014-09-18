@@ -14,31 +14,6 @@
         $scope.lluvias = [];
         $scope.contaminaciones = [];
 
-        $scope.circles = [
-            {
-                id: 1,
-                center: {
-                    latitude: 6.2,
-                    longitude: -75.57
-                },
-                radius: 500,
-                stroke: {
-                    color: '#08B21F',
-                    weight: 2,
-                    opacity: 1
-                },
-                fill: {
-                    color: '#08B21F',
-                    opacity: 0.5
-                },
-                geodesic: true, // optional: defaults to false
-                draggable: true, // optional: defaults to false
-                clickable: true, // optional: defaults to true
-                editable: true, // optional: defaults to false
-                visible: true // optional: defaults to true
-            }
-        ];
-
         $http.get('climas.json?lat=6&lon=-75').success(function(data){
             $scope.climas = data;
 
@@ -53,14 +28,14 @@
                             latitude: clima.latitud,
                             longitude: clima.longitud
                         },
-                        intensidad: (parseInt(clima.valor / 33.333) + 1) * 100000,
+                        intensidad: (parseInt(clima.valor / 33.333) + 1) * 100,
                         stroke: {
-                            color: '#08B21F',
+                            color: '#FF8000',
                             weight: 2,
                             opacity: 1
                         },
                         fill: {
-                            color: '#08B21F',
+                            color: '#FF8000',
                             opacity: 0.5
                         },
                         geodesic: true, // optional: defaults to false
@@ -77,14 +52,14 @@
                             latitude: clima.latitud,
                             longitude: clima.longitud
                         },
-                        intensidad: (parseInt(clima.valor / 33.333) + 1) * 100000,
+                        intensidad: (parseInt(clima.valor / 33.333) + 1) * 100,
                         stroke: {
-                            color: '#08B21F',
+                            color: '#2E64FE',
                             weight: 2,
                             opacity: 1
                         },
                         fill: {
-                            color: '#08B21F',
+                            color: '#2E64FE',
                             opacity: 0.5
                         },
                         geodesic: true, // optional: defaults to false
@@ -101,14 +76,14 @@
                             latitude: clima.latitud,
                             longitude: clima.longitud
                         },
-                        intensidad: (parseInt(clima.valor / 33.333) + 1) * 100000,
+                        intensidad: (parseInt(clima.valor / 33.333) + 1) * 100,
                         stroke: {
-                            color: '#08B21F',
+                            color: '#6E6E6E',
                             weight: 2,
                             opacity: 1
                         },
                         fill: {
-                            color: '#08B21F',
+                            color: '#6E6E6E',
                             opacity: 0.5
                         },
                         geodesic: true, // optional: defaults to false

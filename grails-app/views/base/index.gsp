@@ -38,15 +38,15 @@
                 <circle ng-repeat="c in circles track by c.id" center="c.center" stroke="c.stroke" fill="c.fill" radius="c.radius"
                         visible="c.visible" geodesic="c.geodesic" editable="c.editable" draggable="c.draggable" clickable="c.clickable"></circle>
 
-                <circle ng-repeat="temp in temperaturas track by $index" center"temp.centro" radius="temp.intensidad"
+                <circle ng-repeat="temp in temperaturas track by $index" center="temp.centro" radius="temp.intensidad"
                     stroke="temp.stroke" fill="temp.fill" radius="temp.radius" visible="temp.visible"
                     geodesic="temp.geodesic" editable="temp.editable" draggable="temp.draggable" clickable="temp.clickable"></circle>
 
-                <circle ng-repeat="lluvia in lluvias track by $index" center"lluvia.centro" radius="lluvia.intensidad"
+                <circle ng-repeat="lluvia in lluvias track by $index" center="lluvia.centro" radius="lluvia.intensidad"
             stroke="lluvia.stroke" fill="lluvia.fill" radius="lluvia.radius" visible="lluvia.visible"
             geodesic="lluvia.geodesic" editable="lluvia.editable" draggable="lluvia.draggable" clickable="lluvia.clickable"></circle>
 
-                <circle ng-repeat="cont in contaminaciones track by $index" center"cont.centro" radius="cont.intensidad"
+                <circle ng-repeat="cont in contaminaciones track by $index" center="cont.centro" radius="cont.intensidad"
             stroke="cont.stroke" fill="cont.fill" radius="cont.radius" visible="cont.visible"
             geodesic="cont.geodesic" editable="cont.editable" draggable="cont.draggable" clickable="cont.clickable"></circle>
 
