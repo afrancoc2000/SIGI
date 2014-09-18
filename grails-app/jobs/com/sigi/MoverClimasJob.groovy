@@ -4,7 +4,7 @@ package com.sigi
 
 class MoverClimasJob {
     static triggers = {
-        cron name: 'cronTrigger', startDelay: 0, cronExpression: '0/5 * * * * ?'
+        cron name: 'cronTrigger', startDelay: 0, cronExpression: '0/2 * * * * ?'
     }
 
     def execute() {

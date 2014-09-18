@@ -121,7 +121,7 @@
 
         correr = $interval(function(){
             $scope.traerClimas();
-        }, 5000);
+        }, 2000);
 
         $scope.$on('$destroy', function() {
             if (angular.isDefined(correr)) {
