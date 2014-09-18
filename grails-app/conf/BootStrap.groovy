@@ -21,13 +21,43 @@ class BootStrap {
 		}
 		
 		if(Clima.count() == 0){
-			def clima = new Clima(
-				posX: 34, 
-				posY: 56, 
-				tipo: Clima.TipoClima.LLUVIA,
-				valor: 34
-			)
-			clima.save(flush: true, failOnError: true)
+
+            for(int i = 0; i < 30; i++ ){
+
+                double radio = 0.05 * Math.random()
+                double angulo = 2 * Math.PI * Math.random()
+
+                def clima = new Clima(
+                        latitud: 6.2 + radio * Math.sin(angulo),
+                        longitud: -75.57  + radio * Math.cos(angulo),
+                        tipo: Clima.TipoClima.TEMPERATURA,
+                        valor: 100 * Math.random()
+                )
+                clima.save(flush: true, failOnError: true)
+
+                radio = 0.05 * Math.random()
+                angulo = 2 * Math.PI * Math.random()
+
+                clima = new Clima(
+                        latitud: 6.2 + radio * Math.sin(angulo),
+                        longitud: -75.57  + radio * Math.cos(angulo),
+                        tipo: Clima.TipoClima.LLUVIA,
+                        valor: 100 * Math.random()
+                )
+                clima.save(flush: true, failOnError: true)
+
+                radio = 0.05 * Math.random()
+                angulo = 2 * Math.PI * Math.random()
+
+                clima = new Clima(
+                        latitud: 6.2 + radio * Math.sin(angulo),
+                        longitud: -75.57  + radio * Math.cos(angulo),
+                        tipo: Clima.TipoClima.CONTAMINACION,
+                        valor: 100 * Math.random()
+                )
+                clima.save(flush: true, failOnError: true)
+            }
+
 		}
     }
 
