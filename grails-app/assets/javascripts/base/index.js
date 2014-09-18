@@ -1,11 +1,28 @@
 (function(){
     var app = angular.module('sigiApp', ['google-maps']);
 
-    app.controller('MapaCtrl', ['$scope', '$http', '$filter', function($scope, $http, $filter){
+    app.controller('MapaCtrl', ['$scope', '$http', '$window', function($scope, $http, $window){
+
+        $('.angular-google-map-container').css('height', $window.innerHeight - 16);
+
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition);
+        } else {
+            alert("Este navegador no usa geolocalización");
+        }
+
+        function showPosition(position) {
+            var centroMapa = {
+                latitude: position.coords.latitude,
+                longitude: position.coords.longitude
+            }
+            $scope.map.center = centroMapa;
+        }
+
         $scope.map = {
             center: {
-                latitude: 6.2036524,
-                longitude: -75.5714303
+                latitude: 6.2,
+                longitude: -75
             },
             zoom: 14
         };
