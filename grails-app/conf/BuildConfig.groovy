@@ -74,6 +74,7 @@ grails.project.dependency.resolution = {
         runtime ":jquery:1.11.1"
 		
 		compile ":geb:0.9.3"
+        compile ':quartz:1.0.1'
 
         // Uncomment these to enable additional asset-pipeline capabilities
         //compile ":sass-asset-pipeline:1.9.0"
